@@ -143,7 +143,15 @@ public class ServiceComunicacaoApiTest {
                 .thenThrow(new RuntimeException("Falha ao buscar comunicacao"));
 
         BusinessException e = assertThrows(BusinessException.class, ()->
-                comunicacaoService.buscarStatusComunicacao())
+                comunicacaoService.buscarStatusComunicacao(email));
+
+        assertThat(e, notNullValue());
+        assertThat(e.getMessage(), is("Erro ao gravar comunicacao"));
+        assertThat(e.getCause().getClass(), is(RuntimeException.class));
+        assertThat(e.getCause().getMessage(), is("Falha ao buscar comunicacao"));
+        verify(comunicacaoRepository).findByEmailDestinatario(email);
+        verifyNoInteractions(comunicacaoMapper);
+        verifyNoMoreInteractions(comunicacaoRepository);
     }
 
     @Test
