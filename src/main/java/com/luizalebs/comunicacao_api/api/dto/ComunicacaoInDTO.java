@@ -15,7 +15,7 @@ import java.util.Date;
 @NoArgsConstructor
 @Builder
 @ToString
-public class    ComunicacaoInDTO implements Serializable {
+public class ComunicacaoInDTO implements Serializable {
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private Date dataHoraEnvio;
@@ -27,4 +27,7 @@ public class    ComunicacaoInDTO implements Serializable {
     @JsonIgnore
     private StatusEnvioEnum statusEnvio;
 
+    public ComunicacaoInDTO
+            (String nomeDestinatario, String emailDestinatario, String telefoneDestinatario, String mensagem, ModoEnvioEnum modoDeEnvio, StatusEnvioEnum statusEnvio) {
+    }
 }
