@@ -26,4 +26,7 @@ public class ComunicacaoOutDTO implements Serializable {
     private ModoEnvioEnum modoDeEnvio;
     private StatusEnvioEnum statusEnvio;
 
+    public ComunicacaoOutDTO
+            (String nomeDestinatario, String emailDestinatario, String telefoneDestinatario, String mensagem, ModoEnvioEnum modoDeEnvio, StatusEnvioEnum statusEnvio) {
+    }
 }
